@@ -1,0 +1,36 @@
+{
+  "name": "lastjapan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "ast": "gulp generateDocs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "browser-sync": "^2.14.0",
+    "browserify": "^13.1.0",
+    "css": "^2.1.0",
+    "css-parse": "^2.0.0",
+    "cssnano": "^3.7.4",
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^0.5.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-shell": "^0.2.8",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uncss": "^0.4.4",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^0.6.8",
+    "lodash": "^2.4.1",
+    "node-sass": "^0.9",
+    "postcss-at2x": "^2.0.0",
+    "postcss-css-variables": "^0.5.2",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0"
+  }
+}

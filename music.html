@@ -1,0 +1,22 @@
+---
+layout: default
+title: music
+---
+
+{% include contentHeader.html title=page.title %}
+
+{% for item in site.categories.releases %}
+<div class="mb3">
+  <div class="w-20 fl">
+    <a href="{{ item.url | prepend: site.baseurl }}">
+      <img class="db w-100" src="{{ item.artworkImageUrl }}" />
+    </a>
+  </div>
+  <div class="w-60 fl ml3">
+    <a class="f5 white" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+    {{ item.soundcloudembed }}
+  </div>
+  <div>
+  </div>
+</div>
+{% endfor %}

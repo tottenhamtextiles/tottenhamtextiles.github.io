@@ -1,0 +1,17 @@
+---
+layout: default
+title: Shows
+---
+
+{% include contentHeader.html title=page.title %}
+
+{% for item in site.categories.shows %}
+<div class="mb3">
+  <div>
+    <a class="f4 white" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+  </div>
+  <div>
+    <span>{{ item.time }}  {{ item.showdate }}</span>
+  </div>
+</div>
+{% endfor %}
