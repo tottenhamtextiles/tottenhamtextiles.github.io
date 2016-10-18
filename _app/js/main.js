@@ -1,6 +1,6 @@
 // Define Dependencies
-var dectect = require('./lib/detect');
-var jquery = require('./libjquery');
+var detect = require('./lib/detect');
+var jquery = require('./lib/jquery');
 var history = require('./modules/history');
 var jekyllAjax = require('./modules/jekyllAjax');
 var bg = require('./modules/bg');

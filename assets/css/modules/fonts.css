@@ -1,26 +1,26 @@
 @font-face {
   font-family: 'Oswald';
-  src: url('../assets/fonts/Oswald-Bold.eot'),
-  url('../assets/fonts/Oswald-Bold.woff') format('woff'),
-  url('../assets/fonts/Oswald-Bold.svg#Oswald-Bold') format('svg');
+  src: url('../fonts/Oswald-Bold.eot'),
+  url('../fonts/Oswald-Bold.woff') format('woff'),
+  url('../fonts/Oswald-Bold.svg#Oswald-Bold') format('svg');
   font-weight: 300;
 }
 
 
 @font-face {
   font-family: 'Oswald';
-  src: url('../assets/fonts/Oswald-Light.eot'),
-  url('../assets/fonts/Oswald-Light.woff') format('woff'),
-  url('../assets/fonts/Oswald-Light.svg#Oswald-Light') format('svg');
+  src: url('../fonts/Oswald-Light.eot'),
+  url('../fonts/Oswald-Light.woff') format('woff'),
+  url('../fonts/Oswald-Light.svg#Oswald-Light') format('svg');
   font-weight: 100;
 }
 
 
 @font-face {
   font-family: 'Oswald';
-  src: url('../assets/fonts/Oswald-Regular.eot'),
-  url('../assets/fonts/Oswald-Regular.woff') format('woff'),
-  url('../assets/fonts/Oswald-Regular.svg#Oswald') format('svg');
+  src: url('../fonts/Oswald-Regular.eot'),
+  url('../fonts/Oswald-Regular.woff') format('woff'),
+  url('../fonts/Oswald-Regular.svg#Oswald') format('svg');
   font-weight: 200;
 }
 

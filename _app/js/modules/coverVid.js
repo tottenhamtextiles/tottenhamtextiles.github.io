@@ -1,4 +1,4 @@
-modules.export = {
+module.exports = function () {
 var coverVid = function (elem, width, height) {
 
 	// call sizeVideo on load

@@ -10,16 +10,23 @@ var postFolderName   = '_posts';
 var draftFolderName  = '_drafts';
 var imageFolderName  = 'images';
 var fontFolderName   = 'fonts';
-var vendorFolderName = 'vendor';
 var scriptFolderName = 'js';
 var stylesFolderName = 'css';
+
+// Glob patterns by file type
+var cssPattern         = '/**/*.css';
+var jsPattern          = '/main.js';
+var imagePattern       = '/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF|mp4)';
+var markdownPattern    = '/**/*.+(md|MD|markdown|MARKDOWN)';
+var htmlPattern        = '/**/*.html';
+var xmlPattern         = '/**/*.xml';
+var fontPatterns       = '/**.*';
 
 // App files locations
 var appCssFiles    = appDir  + stylesFolderName;
 var appJsFiles     = appDir  + scriptFolderName;
 var appImageFiles  = appDir  + imageFolderName;
 var appFontFiles   = appDir  + fontFolderName;
-var appVendorFiles = appDir  + vendorFolderName;
 
 // Jekyll files locations
 var jekyllPostFiles    = jekyllDir + postFolderName;
@@ -28,19 +35,6 @@ var jekyllImageFiles   = jekyllDir + 'assets/' + imageFolderName;
 var jekyllFontFiles    = jekyllDir + 'assets/' + fontFolderName;
 var jekyllScriptFiles  = jekyllDir + 'assets/' + scriptFolderName;
 var jekyllStyleFiles   = jekyllDir + 'assets/' + stylesFolderName;
-
-// Site files locations
-var siteImageFiles   = siteDir   + '/assets/' + imageFolderName;
-var siteFontFiles    = siteDir   + '/assets/' + fontFolderName;
-
-// Glob patterns by file type
-var cssPattern         = '/**/*.css';
-var jsPattern          = '**/*.js';
-var imagePattern       = '/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF)';
-var markdownPattern    = '/**/*.+(md|MD|markdown|MARKDOWN)';
-var htmlPattern        = '/**/*.html';
-var xmlPattern         = '/**/*.xml';
-var fontPatterns       = '/**.*';
 
 // App files globs
 var appCssFilesGlob      = appCssFiles      + cssPattern;
@@ -110,7 +104,6 @@ gulp.task('build:fonts', function() {
   return gulp.src(appFontFilesGlob)
     .pipe(rename(function(path) {path.dirname = '';}))
     .pipe(gulp.dest(jekyllFontFiles))
-    // .pipe(gulp.dest(siteFontFiles))
     .pipe(browserSync.stream())
     .pipe(size({showFiles: true}))
     .on('error', gutil.log);
@@ -122,7 +115,6 @@ gulp.task('build:fonts', function() {
 gulp.task('build:images', function() {
   return gulp.src(appImageFilesGlob)
     .pipe(gulp.dest(jekyllImageFiles))
-    // .pipe(gulp.dest(siteImageFiles))
     .pipe(browserSync.stream())
     .pipe(size({showFiles: true}))
     .on('error', gutil.log);
@@ -131,43 +123,12 @@ gulp.task('build:images', function() {
 // Concatenates and uglifies JS files and outputs result to
 // the appropriate location(s).
 gulp.task('build:scripts', function() {
-  return gulp.src(appJsFilesGlob)
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+  var bundleStream = browserify(appJsFilesGlob).bundle()
+  bundleStream
+    .pipe(source("appJsFilesGlob"))
+    .pipe(rename('main.js'))
     .pipe(gulp.dest(jekyllScriptFiles))
-    .pipe(size({showFiles: true}))
-    .on('error', gutil.log);
-
-  // gulp.src(appJsFilesGlob)
-  //   .pipe(include({
-  //     extensions: "js",
-  //     hardFail: true,
-  //     includePaths: [
-  //       __dirname + "/_app/js"
-  //     ]
-  //   }))
-  //   .pipe(gulp.dest(jekyllScriptFiles));
-    //
-    // gulp.src(appJsFilesGlob)
-    //   .pipe(include({
-    //     extensions: "js",
-    //     hardFail: true,
-    //     includePaths: [
-    //       __dirname + "/_app/js"
-    //     ]
-    //   }))
-    //   .pipe(gulp.dest("./dist"));
 });
-//
-// gulp.src("js/main.js")
-//   .pipe(include({
-//     extensions: "js",
-//     hardFail: true,
-//     includePaths: [
-//       __dirname + "/js"
-//     ]
-//   }))
-//   .pipe(gulp.dest("./dist"));
 
 // Runs Jekyll build
 gulp.task('build:jekyll', function() {
@@ -179,13 +140,6 @@ gulp.task('build:jekyll', function() {
     .on('error', gutil.log);
 });
 
-// Builds site
-// Optionally pass the --drafts flag to enable including drafts
-// gulp.task('build', function(cb) {
-//   runSequence(['build:scripts', 'build:images', 'build:styles', 'build:fonts'],
-//               'build:jekyll',
-//               cb);
-// });
 
 gulp.task('build', ['build:scripts', 'build:images', 'build:styles', 'build:fonts', 'build:jekyll'], function(){
   debug({title: 'unicorn:'});
@@ -200,11 +154,11 @@ gulp.task('build:jekyll:watch', ['build:jekyll'], function(cb) {
   browserSync.reload();
   cb();
 });
+
 gulp.task('build:scripts:watch', ['build:scripts'], function(cb) {
   browserSync.reload();
   cb();
 });
-
 
 // Static Server + watching files
 // WARNING: passing anything besides hard-coded literal paths with globs doesn't
@@ -222,30 +176,18 @@ gulp.task('serve', ['build'], function() {
 
   // Watch site settings
   gulp.watch(['_config.yml', '_app/localhost_config.yml'], ['build:jekyll:watch']);
-
   // Watch app .css files, changes are piped to browserSync
   gulp.watch('_app/css/**/*.css', ['build:styles']);
-
   // Watch app .js files
   gulp.watch('_app/js/**/*.js', ['build:scripts:watch']);
-
   // Watch Jekyll posts
   gulp.watch('_posts/**/*.+(md|markdown|MD)', ['build:jekyll:watch']);
-
-  // Watch Jekyll drafts if --drafts flag was passed
-  // if (config.drafts) {
-  //   gulp.watch('_drafts/*.+(md|markdown|MD)', ['build:jekyll:watch']);
-  // }
-
   // Watch Jekyll html files
   gulp.watch(['**/*.html', '_site/**/*.*'], ['build:jekyll:watch']);
-
   // Watch Jekyll RSS feed XML file
   gulp.watch('feed.xml', ['build:jekyll:watch']);
-
   // Watch Jekyll data files
   gulp.watch('_data/**.*+(yml|yaml|csv|json)', ['build:jekyll:watch']);
-
   // Watch Jekyll favicon.ico
   gulp.watch('favicon.ico', ['build:jekyll:watch']);
 });
