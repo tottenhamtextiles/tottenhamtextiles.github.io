@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald-Bold.eot'),
+  url('../assets/fonts/Oswald-Bold.woff') format('woff'),
+  url('../assets/fonts/Oswald-Bold.svg#Oswald-Bold') format('svg');
+  font-weight: 300;
+}
+
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald-Light.eot'),
+  url('../assets/fonts/Oswald-Light.woff') format('woff'),
+  url('../assets/fonts/Oswald-Light.svg#Oswald-Light') format('svg');
+  font-weight: 100;
+}
+
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald-Regular.eot'),
+  url('../assets/fonts/Oswald-Regular.woff') format('woff'),
+  url('../assets/fonts/Oswald-Regular.svg#Oswald') format('svg');
+  font-weight: 200;
+}
+
+body, html {
+  font-family: 'Oswald';
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.f1, .f2, .f3, .f4, .f5 {
+  font-weight: 100;
+  text-transform: uppercase;
+}

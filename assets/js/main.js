@@ -1,0 +1,1 @@
+var dectect=require("./lib/detect"),jquery=require("./libjquery"),history=require("./modules/history"),jekyllAjax=require("./modules/jekyllAjax"),bg=require("./modules/bg"),coverVid=require("./modules/coverVid");detect(),jquery(),history(),jekyllAjax(),bg(),coverVid();
