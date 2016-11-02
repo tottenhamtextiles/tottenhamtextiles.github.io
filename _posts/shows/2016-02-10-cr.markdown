@@ -2,7 +2,14 @@
 layout: post
 title:  "Circadian Rhythms on NTS"
 time: "8-10PM"
-showdate:   "17/10/16"
+showdate:   "27/10/16"
+category: "shows"
+link: "http://nts.live"
+---
+layout: post
+title:  "Circadian Rhythms on NTS Radio"
+time: "8-10PM"
+showdate:   "24/11/16"
 category: "shows"
 link: "http://nts.live"
 ---
