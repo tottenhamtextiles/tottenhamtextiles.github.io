@@ -5,7 +5,7 @@ title: music
 
 {% include contentHeader.html title="Releases" %}
 
-{% for item in site.categories.releases %}
+{% for item in site.categories.music %}
   {% if item.type == 'Release' %}
     <div class="mb4 w-100 overflow-hidden">
       <div class="w-20 fl">
@@ -32,7 +32,7 @@ title: music
 {% endfor %}
 
 <h1 class="f3 dib mp3 w-100 mt5">Mixes</h1>
-{% for item in site.categories.releases %}
+{% for item in site.categories.music %}
   {% if item.type == 'Mixes' %}
     <div class="mb3">
       <div class="w-20 fl">
@@ -56,7 +56,7 @@ title: music
 {% endfor %}
 
 <h1 class="f3 dib mp3 w-100 mt5">Soundtracks</h1>
-{% for item in site.categories.releases %}
+{% for item in site.categories.music %}
   {% if item.type == 'Soundtrack' %}
     <div class="mb3">
       <div class="w-20 fl">

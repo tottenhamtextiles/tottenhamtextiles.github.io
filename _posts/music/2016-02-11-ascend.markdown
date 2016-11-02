@@ -4,7 +4,7 @@ title:  "Ascend feat. AJ Tracey"
 type: "soundcloud"
 artworkImageUrl: https://i1.sndcdn.com/artworks-000151291279-yuwf4o-t500x500.jpg
 link: https://soundcloud.com/platform/last-japan-ascend-feat-aj-tracey-boiler-room-debuts
-category: "releases"
+category: "music"
 soundcloudLink: https://soundcloud.com/platform/last-japan-ascend-feat-aj-tracey-boiler-room-debuts
 itunesLink: https://soundcloud.com/platform/last-japan-ascend-feat-aj-tracey-boiler-room-debuts
 spotifyLink: https://soundcloud.com/platform/last-japan-ascend-feat-aj-tracey-boiler-room-debuts
