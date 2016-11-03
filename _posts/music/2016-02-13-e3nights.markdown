@@ -9,6 +9,6 @@ soundcloudLink: https://soundcloud.com/lastjapan/e3nights
 itunesLink: https://itunes.apple.com/gb/album/e3-nights-single/id1028132705 
 spotifyLink: https://play.spotify.com/track/1rK6sqCgcJR38aKUQA3UKU
 vinylLink: 
-soundcloudembed: <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/217635809&amp;color=000000&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
+soundcloudembed: <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/217635809&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe>
 type: "Release"
 ---
