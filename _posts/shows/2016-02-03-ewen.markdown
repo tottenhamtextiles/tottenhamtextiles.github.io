@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Ewen Spencer - Fabrica [Brighton, UK]"
+time: "Late"
+showdate:   "13/11/16"
+category: "shows"
+link: 
+---
