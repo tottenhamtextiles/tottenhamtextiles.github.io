@@ -150,15 +150,14 @@ reloading the entire page. Other changes, such as changing JavaScript or
 needing to run jekyll build require reloading the page, which BrowserSync
 recommends doing by setting up special watch tasks.*/
 // Special tasks for building and then reloading BrowserSync
-gulp.task('build:jekyll:watch', ['build:jekyll'], function(cb) {
-  browserSync.reload();
-  cb();
-});
-
-gulp.task('build:scripts:watch', ['build:scripts'], function(cb) {
-  browserSync.reload();
-  cb();
-});
+// gulp.task('build:jekyll:watch', ['build:jekyll'], function(cb) {
+//   browserSync.reload();
+//   cb();
+// });
+//
+// gulp.task('build:scripts:watch', ['build:scripts'], function(cb) {
+//   cb();
+// });
 
 // Static Server + watching files
 // WARNING: passing anything besides hard-coded literal paths with globs doesn't
@@ -175,19 +174,19 @@ gulp.task('serve', ['build'], function() {
   });
 
   // Watch site settings
-  gulp.watch(['_config.yml', '_app/localhost_config.yml'], ['build:jekyll:watch']);
+  gulp.watch(['_config.yml', '_app/localhost_config.yml'], ['build:jekyll']);
   // Watch app .css files, changes are piped to browserSync
   gulp.watch('_app/css/**/*.css', ['build:styles']);
   // Watch app .js files
-  gulp.watch('_app/js/**/*.js', ['build:scripts:watch']);
+  gulp.watch('_app/js/**/*.js', ['build:scripts']);
   // Watch Jekyll posts
-  gulp.watch('_posts/**/*.+(md|markdown|MD)', ['build:jekyll:watch']);
+  gulp.watch('_posts/**/*.+(md|markdown|MD)', ['build:jekyll']);
   // Watch Jekyll html files
-  gulp.watch(['**/*.html', '_site/**/*.*'], ['build:jekyll:watch']);
+  gulp.watch(['**/*.html', '_site/**/*.*'], ['build:jekyll']);
   // Watch Jekyll RSS feed XML file
   gulp.watch('feed.xml', ['build:jekyll:watch']);
   // Watch Jekyll data files
-  gulp.watch('_data/**.*+(yml|yaml|csv|json)', ['build:jekyll:watch']);
+  gulp.watch('_data/**.*+(yml|yaml|csv|json)', ['build:jekyll']);
   // Watch Jekyll favicon.ico
   gulp.watch('favicon.ico', ['build:jekyll:watch']);
 });

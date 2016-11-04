@@ -10241,7 +10241,6 @@ var detect = require('./lib/detect');
 var jquery = require('./lib/jquery');
 var history = require('./modules/history');
 var jekyllAjax = require('./modules/jekyllAjax');
-var bg = require('./modules/bg');
 var coverVid = require('./modules/coverVid');
 
 // // Detect if JavaScript is enabled
@@ -10250,20 +10249,12 @@ detect();
 jquery();
 history();
 jekyllAjax();
-bg();
 coverVid();
 //
 // // Print success message to console
 // console.log('<head> scripts loaded.')
 
-},{"./lib/detect":1,"./lib/jquery":2,"./modules/bg":4,"./modules/coverVid":5,"./modules/history":6,"./modules/jekyllAjax":7}],4:[function(require,module,exports){
-module.exports = function () {
-$(document).ready(function() {
-  $('.bgDark').fadeOut();
-});
-}
-
-},{}],5:[function(require,module,exports){
+},{"./lib/detect":1,"./lib/jquery":2,"./modules/coverVid":4,"./modules/history":5,"./modules/jekyllAjax":6}],4:[function(require,module,exports){
 module.exports = function () {
 var coverVid = function (elem, width, height) {
 
@@ -10361,7 +10352,7 @@ if (window.jQuery) {
 }
 }
 
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function () {
   //	HISTORY.JS
   //	https://github.com/balupton/History.js/
@@ -10395,7 +10386,7 @@ module.exports = function () {
 
 }
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function () {
 jQuery(document).ready(function($) {
 
