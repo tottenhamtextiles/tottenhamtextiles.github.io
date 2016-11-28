@@ -1,0 +1,28 @@
+.tottex-border {
+  -webkit-box-shadow:0 0 0 10px #272F71;
+  box-shadow:0 0 0 10px #272F71;
+  width: 100%;
+   height: 100%;
+   top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+
+.tottex-border-container {
+  -webkit-box-shadow:inset 0 0 0 10px #272F71;
+  box-shadow:inset 0 0 0 10px #272F71;
+  width: 100%;
+   height: 100%;
+   top: 0;
+  left: 0;
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+}
+
+
+body {
+  background: #00FFFD;
+}

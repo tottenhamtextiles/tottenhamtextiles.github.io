@@ -1,9 +1,0 @@
----
-layout: post
-title:  "Ride With Us - Album"
-type: "youtube"
-link: https://soundcloud.com/lastjapan/ride-with-us-feat-trim
-category: "music"
-soundcloudembed: <iframe width="200" height="113" src="https://www.youtube.com/embed/3_2AVogIb5c?rel=0" frameborder="0" allowfullscreen></iframe>
-type: "Soundtracks"
----

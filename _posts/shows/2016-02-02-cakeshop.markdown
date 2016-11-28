@@ -1,8 +1,0 @@
----
-layout: post
-title:  "Half-Light - Cakeshop [Seoul, South Korea]"
-time: "10PM-Late"
-showdate:   "22/10/16"
-category: "shows"
-link: 
----

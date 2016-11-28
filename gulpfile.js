@@ -1,5 +1,6 @@
 var paths = {};
 
+var siteRoot = '_site';
 // Directory locations
 var appDir             = '_app/';  // The files Gulp will work on
 var jekyllDir          = '';       // The files Jekyll will work on
@@ -33,8 +34,10 @@ var jekyllPostFiles    = jekyllDir + postFolderName;
 var jekyllDraftFiles   = jekyllDir + draftFolderName;
 var jekyllImageFiles   = jekyllDir + 'assets/' + imageFolderName;
 var jekyllFontFiles    = jekyllDir + 'assets/' + fontFolderName;
-var jekyllScriptFiles  = jekyllDir + 'assets/' + scriptFolderName;
+var jekyllScriptFiles  = siteDir + 'assets/' + scriptFolderName;
+var jekyllScriptFiles2  = jekyllDir + 'assets/' + scriptFolderName;
 var jekyllStyleFiles   = jekyllDir + 'assets/' + stylesFolderName;
+var jekyllStyleFiles2   = siteDir + 'assets/' + stylesFolderName;
 
 // App files globs
 var appCssFilesGlob      = appCssFiles      + cssPattern;
@@ -95,7 +98,6 @@ gulp.task('build:styles', function() {
   gulp.src(appCssFilesGlob)
     .pipe(postcss(processors))
     .pipe(gulp.dest(jekyllStyleFiles))
-    .pipe(browserSync.stream())
     .on('error', gutil.log);
 });
 
@@ -104,7 +106,6 @@ gulp.task('build:fonts', function() {
   return gulp.src(appFontFilesGlob)
     .pipe(rename(function(path) {path.dirname = '';}))
     .pipe(gulp.dest(jekyllFontFiles))
-    .pipe(browserSync.stream())
     .pipe(size({showFiles: true}))
     .on('error', gutil.log);
 });
@@ -115,7 +116,6 @@ gulp.task('build:fonts', function() {
 gulp.task('build:images', function() {
   return gulp.src(appImageFilesGlob)
     .pipe(gulp.dest(jekyllImageFiles))
-    .pipe(browserSync.stream())
     .pipe(size({showFiles: true}))
     .on('error', gutil.log);
 })
@@ -128,22 +128,47 @@ gulp.task('build:scripts', function() {
     .pipe(source("appJsFilesGlob"))
     .pipe(rename('main.js'))
     .pipe(gulp.dest(jekyllScriptFiles))
+    .pipe(gulp.dest(jekyllScriptFiles2))
 });
 
 // Runs Jekyll build
-gulp.task('build:jekyll', function() {
-  var shellCommand = 'bundle exec jekyll build --config _config.yml,_app/localhost_config.yml';
-  // if (config.drafts) { shellCommand += ' --drafts'; };
+gulp.task('jekyll', () => {
+  const jekyll = child.spawn('jekyll', ['build',
+    '--watch',
+    '--incremental',
+    '--drafts'
+  ]);
 
-  return gulp.src(jekyllDir)
-    .pipe(run(shellCommand))
-    .on('error', gutil.log);
+  const jekyllLogger = (buffer) => {
+    buffer.toString()
+      .split(/\n/)
+      .forEach((message) => gutil.log('Jekyll: ' + message));
+  };
+
+  jekyll.stdout.on('data', jekyllLogger);
+  jekyll.stderr.on('data', jekyllLogger);
 });
 
 
-gulp.task('build', ['build:scripts', 'build:images', 'build:styles', 'build:fonts', 'build:jekyll'], function(){
-  debug({title: 'unicorn:'});
+gulp.task('serve', () => {
+  browserSync.init({
+    files: [siteRoot + '/**'],
+    port: 4000,
+    server: {
+      baseDir: siteRoot
+    }
+  });
+
+  gulp.watch('_app/css/**/*.css', ['build:styles']);
 });
+
+
+// gulp.task('build', ['build:scripts', 'build:images', 'build:styles', 'build:fonts', 'build:jekyll'], function(){
+//   debug({title: 'unicorn:'});
+// });
+
+
+gulp.task('default', ['build:scripts', 'build:images', 'build:fonts', 'build:styles', 'jekyll', 'serve']);
 
 /* Sass and image file changes can be streamed directly to BrowserSync without
 reloading the entire page. Other changes, such as changing JavaScript or
@@ -162,31 +187,33 @@ recommends doing by setting up special watch tasks.*/
 // Static Server + watching files
 // WARNING: passing anything besides hard-coded literal paths with globs doesn't
 //          seem to work with the gulp.watch()
-gulp.task('serve', ['build'], function() {
 
-  debug({path: appJsFilesGlob })
 
-  browserSync.init({
-    server: siteDir,
-    ghostMode: false, // do not mirror clicks, reloads, etc. (performance optimization)
-    logFileChanges: true,
-    open: false       // do not open the browser (annoying)
-  });
-
-  // Watch site settings
-  gulp.watch(['_config.yml', '_app/localhost_config.yml'], ['build:jekyll']);
-  // Watch app .css files, changes are piped to browserSync
-  gulp.watch('_app/css/**/*.css', ['build:styles']);
-  // Watch app .js files
-  gulp.watch('_app/js/**/*.js', ['build:scripts']);
-  // Watch Jekyll posts
-  gulp.watch('_posts/**/*.+(md|markdown|MD)', ['build:jekyll']);
-  // Watch Jekyll html files
-  gulp.watch(['**/*.html', '_site/**/*.*'], ['build:jekyll']);
-  // Watch Jekyll RSS feed XML file
-  gulp.watch('feed.xml', ['build:jekyll:watch']);
-  // Watch Jekyll data files
-  gulp.watch('_data/**.*+(yml|yaml|csv|json)', ['build:jekyll']);
-  // Watch Jekyll favicon.ico
-  gulp.watch('favicon.ico', ['build:jekyll:watch']);
-});
+// gulp.task('serve', ['build'], function() {
+//
+//   debug({path: appJsFilesGlob })
+//
+//   browserSync.init({
+//     server: siteDir,
+//     ghostMode: false, // do not mirror clicks, reloads, etc. (performance optimization)
+//     logFileChanges: true,
+//     open: false       // do not open the browser (annoying)
+//   });
+//
+//   // Watch site settings
+//   gulp.watch(['_config.yml', '_app/localhost_config.yml'], ['build:jekyll']);
+//   // Watch app .css files, changes are piped to browserSync
+//   gulp.watch('_app/css/**/*.css', ['build:styles']);
+//   // Watch app .js files
+//   gulp.watch('_app/js/**/*.js', ['build:scripts']);
+//   // Watch Jekyll posts
+//   gulp.watch('_posts/**/*.+(md|markdown|MD)', ['build:jekyll']);
+//   // Watch Jekyll html files
+//   gulp.watch(['**/*.html', '_site/**/*.*'], ['build:jekyll']);
+//   // Watch Jekyll RSS feed XML file
+//   gulp.watch('feed.xml', ['build:jekyll:watch']);
+//   // Watch Jekyll data files
+//   gulp.watch('_data/**.*+(yml|yaml|csv|json)', ['build:jekyll']);
+//   // Watch Jekyll favicon.ico
+//   gulp.watch('favicon.ico', ['build:jekyll:watch']);
+// });

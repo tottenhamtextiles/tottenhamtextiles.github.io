@@ -1,39 +1,71 @@
 {% assign current = page.url | downcase | split: '/' %}
 {% include head/base.html %}
-<div class="covervid-wrapper dn db-ns">
-    <video class="covervid-video" id="vid" poster="/assets/images/bg.jpg" autoplay loop>
-      <source src="/assets/images/bg_vid.mp4" type='video/mp4'>
-    </video>
-</div>
 
-<div class="w-100 w-50-l fixed left-0 bottom-0 top-0 z-3">
-  <div class="dn db-l h-100 pa3 fl" class="logo-vert">
-    <img class="h-100" src="/assets/images/logo-horz2.svg" />
+<div class="logo-center">
+  <img src="assets/images/logo.svg" />
+</div>
+<div class="tottex-border-container"></div>
+<div class="grid">
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
   </div>
-  <div class="h-100 pa4 fl">
-    <div class="h-100 menu flex flex-column justify-center">
-      <div>
-        <!-- <img class="h-100" src="/assets/images/logo-horz.svg" /> -->
-        <ul class="list">
-          <li class="mb4">
-            <a class="{% if current[1] == 'about' %}active{% endif %} f3 white caps" href="/about">About</a>
-          </li>
-          <li class="mb4">
-            <a class="{% if current[1] == 'music' %}active{% endif %} f3 white caps" href="/music">Music</a>
-          </li>
-          <li class="mb4">
-            <a class="{% if current[1] == 'shows' %}active{% endif %} f3 white caps" href="/shows">Shows</a>
-          </li>
-          <li class="mb4">
-            <a class="{% if current[1] == 'contact' %}active{% endif %} f3 white caps" href="/contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="w-50 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-50 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-50 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-50 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-75 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-25 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-50 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
+  </div>
+  <div class="w-50 grid-item ">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
+    <div class="tottex-border"></div>
   </div>
 </div>
+<!--
 <div class="container">
   <section class="z-4 {% unless page.noContentArea %}content-active{% endunless %} pt5 content w-100 w-50-l fixed left-0 right-0 bottom-0 top-0 pa5 white overflow-scroll z-1">
     {{ content }}
   </section>
-</div>
+</div> -->

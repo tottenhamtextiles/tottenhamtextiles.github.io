@@ -39,5 +39,8 @@
     "run-sequence": "^1.2.2",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.1.1"
   }
 }
