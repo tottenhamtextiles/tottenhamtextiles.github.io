@@ -6,7 +6,7 @@ collections:
     title: Feed
     output: true
     Tags:
-    -
+    - 
   posts:
     title: Posts
     output: true
@@ -14,12 +14,12 @@ collections:
     title: Uploads
     output: true
 defaults:
-  - scope:
-      path: posts
-      type: posts
-    values:
-      description: ''
-      image: ''
+- scope:
+    path: posts
+    type: posts
+  values:
+    description: ''
+    image: ''
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
