@@ -24,7 +24,7 @@ github_username:  jasecoop
 permalink: pretty
 defaults:
 - scope:
-    path: ''
+    path: 'posts'
     type: posts
   values:
     description: ''
