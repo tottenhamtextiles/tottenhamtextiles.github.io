@@ -18,7 +18,7 @@ defaults:
       path: posts
       type: posts
     values:
-      testing: ''
+      description: "is this here"
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
