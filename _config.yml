@@ -19,6 +19,7 @@ defaults:
       type: posts
     values:
       description: "is this here"
+>>>>>>> 997dccc1b71896d7b00f63f31dffd6f36a13e0cc
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
