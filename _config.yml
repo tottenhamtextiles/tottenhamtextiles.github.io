@@ -16,10 +16,11 @@ collections:
 defaults:
   -
     scope:
-      path: posts
-      type: posts
+      path: ""
+      type: "posts"
     values:
-      description: is this here
+      layout: "default"
+      author: "Ethan"
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
