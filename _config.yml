@@ -22,16 +22,13 @@ url: "http://tottenhamtextiles.github.io" # the base hostname & protocol for you
 twitter_username: tottenhamtextiles
 github_username:  jasecoop
 permalink: pretty
-
 defaults:
 - scope:
-    path: "posts"
-    type: "posts"
+    path: ''
+    type: posts
   values:
-    image: "image"
-    tags:
-    link:
-
+    description: ''
+    image: ''
 # Build settings
 markdown: kramdown
 theme: minima
