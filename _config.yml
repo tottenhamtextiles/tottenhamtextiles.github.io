@@ -24,14 +24,13 @@ github_username:  jasecoop
 permalink: pretty
 
 defaults:
-  -
-    scope:
-      path: "posts"
-      type: "posts"
-    values:
-      image: "image"
-      tags:
-      link:
+- scope:
+    path: "posts"
+    type: "posts"
+  values:
+    image: "image"
+    tags:
+    link:
 
 # Build settings
 markdown: kramdown
