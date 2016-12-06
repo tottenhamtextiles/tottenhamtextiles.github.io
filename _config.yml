@@ -27,7 +27,7 @@ defaults:
   -
     scope:
       path: ""
-      type: "feed"
+      type: "posts"
     values:
       image:
       tags:
