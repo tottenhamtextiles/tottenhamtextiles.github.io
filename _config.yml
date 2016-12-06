@@ -6,28 +6,27 @@ collections:
     title: Feed
     output: true
     Tags:
-    -
+    - 
   posts:
     title: Posts
     output: true
   uploads:
     title: Uploads
     output: true
+defaults:
+- scope:
+    path: posts
+    type: posts
+  values:
+    description: ''
+    image: ''
 email: jase@jasecoop.com
-description: 'Official website'
+description: Official website
 baseurl: ''
 url: http://tottenhamtextiles.github.io
 twitter_username: tottenhamtextiles
 github_username: jasecoop
 permalink: pretty
-defaults:
-- scope:
-    path: 'posts'
-    type: posts
-  values:
-    description: ''
-    image: ''
-# Build settings
 markdown: kramdown
 theme: minima
 exclude:
