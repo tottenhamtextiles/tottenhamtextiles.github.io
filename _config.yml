@@ -29,7 +29,7 @@ defaults:
       path: "posts"
       type: "posts"
     values:
-      image:
+      image: "image"
       tags:
       link:
 
