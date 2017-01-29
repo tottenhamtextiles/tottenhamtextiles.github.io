@@ -6,7 +6,7 @@ collections:
     title: Feed
     output: true
     Tags:
-    -
+    - 
   posts:
     title: Posts
     output: true
@@ -19,9 +19,9 @@ defaults:
     type: posts
   values:
     layout: default
-    image: ""
-    permalink: ""
-    image_size: 2 
+    image: ''
+    permalink: ''
+    image_size: 2
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
