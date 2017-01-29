@@ -10242,6 +10242,7 @@ var jquery = require('./lib/jquery');
 // var history = require('./modules/history');
 // var jekyllAjax = require('./modules/jekyllAjax');
 var grid = require('./modules/grid');
+var modal = require('./modules/modal');
 // // Detect if JavaScript is enabled
 detect();
 
@@ -10249,6 +10250,7 @@ jquery();
 // history();
 // jekyllAjax();
 grid();
+modal();
 //
 // // Print success message to console
 // console.log('<head> scripts loaded.')
@@ -10265,7 +10267,7 @@ $(window).on('load', function() {
   // });
 });
 
-},{"./lib/detect":1,"./lib/jquery":2,"./modules/grid":4}],4:[function(require,module,exports){
+},{"./lib/detect":1,"./lib/jquery":2,"./modules/grid":4,"./modules/modal":5}],4:[function(require,module,exports){
 module.exports = function () {
 
   // $(document).ready( function ( ) {
@@ -10276,6 +10278,30 @@ module.exports = function () {
   //   });
   // });
 
+}
+
+},{}],5:[function(require,module,exports){
+module.exports = function () {
+
+  var closeModal = function() {
+    $('.modal-active').fadeOut();
+    $('.modal-active').removeClass('modal-active');
+    $('body').removeClass('modalActive')
+  }
+
+  $(document).ready( function ( ) {
+
+    $('body').on('click', '.grid-item', function() {
+      if ( $('body').hasClass('modalActive') ) {
+        closeModal();
+      } else {
+        $modal = $(this).find('.modal');
+        $modal.fadeIn();
+        $modal.addClass('modal-active');
+        $('body').addClass('modalActive');
+      }
+    });
+  });
 }
 
 },{}]},{},[3]);

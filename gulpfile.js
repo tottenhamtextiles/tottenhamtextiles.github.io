@@ -160,6 +160,7 @@ gulp.task('serve', () => {
   });
 
   gulp.watch('_app/css/**/*.css', ['build:styles']);
+  gulp.watch('_app/css/**/*.css', ['build:scripts']);
 });
 
 

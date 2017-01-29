@@ -34,6 +34,11 @@
 
 */
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .pa0 { padding: 0; }
 
 .pa1 { padding: .25rem; }

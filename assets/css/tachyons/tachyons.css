@@ -1280,6 +1280,30 @@ input[type="url"],
 .left-2   { left:   2rem; }
 
 
+.top-3    { top:    3rem; }
+
+
+.right-3  { right:  3rem; }
+
+
+.bottom-3 { bottom: 3rem; }
+
+
+.left-3   { left:   3rem; }
+
+
+.top-4    { top:    4rem; }
+
+
+.right-4  { right:  4rem; }
+
+
+.bottom-4 { bottom: 4rem; }
+
+
+.left-4   { left:   4rem; }
+
+
 .top--1    { top:    -1rem; }
 
 
@@ -3348,6 +3372,12 @@ code, .code {
    7 = 7th step in spacing scale
 
 */
+
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 .pa0 { padding: 0; }

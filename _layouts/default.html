@@ -5,6 +5,7 @@
   <img src="assets/images/logo.svg" />
 </div>
 <div class="tottex-border-container"></div>
+
 <div class="grid">
     {% for post in site.posts %}
 
@@ -20,6 +21,25 @@
       <div class="{{size}} grid-item">
         <img src="{{ post.image }}" />
         <div class="tottex-border"></div>
+
+        <div class="modal bg-white fixed top-4 left-4 right-4 bottom-4 z-2 modal-border overflow-y-scroll">
+          <div class="ma4">
+            <div class="tc w-100">
+              <div class="w-50 dib">
+                <img class="" src="{{ post.image }}" />
+              </div>
+            </div>
+            <div class="w-80 mx-auto">
+              <h1 class="tc">{{ post.title}}</h1>
+              <div class="f2">
+                {{ post.content }}
+                {{ post.content }}
+                {{ post.content }}
+                {{ post.content }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     {% endfor %}
 </div>

@@ -48,6 +48,10 @@
 
 */
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .pa0 { padding: var(--spacing-none); }
 .pa1 { padding: var(--spacing-extra-small); }
