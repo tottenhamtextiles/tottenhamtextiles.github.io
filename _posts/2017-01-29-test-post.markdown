@@ -2,7 +2,7 @@
 title: Test Post
 date: 2017-01-29 16:30:00 Z
 image: "/uploads/IMG_5323-d7b146.PNG"
-image_size: 3
+image_size: 2
 ---
 
 Hi this is a post
