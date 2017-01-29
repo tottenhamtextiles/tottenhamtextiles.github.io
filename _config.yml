@@ -6,7 +6,7 @@ collections:
     title: Feed
     output: true
     Tags:
-    - 
+    -
   posts:
     title: Posts
     output: true
@@ -20,6 +20,7 @@ defaults:
   values:
     layout: default
     author: Ethan
+    image: ""
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
