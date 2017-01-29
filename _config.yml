@@ -21,6 +21,7 @@ defaults:
     layout: default
     image: ""
     permalink: ""
+    image_size: 2 
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
