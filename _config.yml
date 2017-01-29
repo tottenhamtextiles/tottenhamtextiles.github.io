@@ -19,8 +19,8 @@ defaults:
     type: posts
   values:
     layout: default
-    author: Ethan
     image: ""
+    permalink: ""
 email: jase@jasecoop.com
 description: Official website
 baseurl: ''
