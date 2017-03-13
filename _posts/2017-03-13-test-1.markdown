@@ -1,7 +1,0 @@
----
-title: test-1
-date: 2017-03-13 13:43:00 Z
-image: "/uploads/giphy.gif"
-image_size: 1
----
-
