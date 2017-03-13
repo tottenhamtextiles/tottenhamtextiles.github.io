@@ -1,5 +1,5 @@
 ---
-title: More stuff
+title: Denim
 date: 2017-01-29 16:41:00 Z
 image: "/uploads/denim-1.jpg"
 image_size: 1
