@@ -6,7 +6,7 @@ tags:
 - embroidery
 - badges
 image: "/uploads/branding-4.jpg"
-image_size: 2
+image_size: 1.5
 ---
 
 Branding, and re-branding. 
