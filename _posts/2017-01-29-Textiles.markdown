@@ -1,5 +1,5 @@
 ---
-title: Test
+title: Textiles
 date: 2017-01-29 16:42:00 Z
 image: "/uploads/texture-3.jpg"
 image_size: 2
